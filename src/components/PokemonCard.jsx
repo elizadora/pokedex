@@ -1,15 +1,28 @@
+import { useNavigate } from "react-router-dom";
+
+
 const PokemonCard = ({ pokemon }) =>{
+    const navigate = useNavigate();
     const primaryType = pokemon.types[0].type.name;
     const cardColor = getTypeColor(primaryType).primary;
 
+
+    const navigateToPokemon = () => {
+        navigate(`/pokemon/${pokemon.id}`, { state: pokemon });
+    };
+
+
     return(
-        <div className="p-6 rounded-lg shadow-md m-4 w-60"
+        <div className="p-6 rounded-lg shadow-md m-4 w-60 cursor-pointer transition-transform transform hover:scale-105"
             style={{
                 backgroundColor: cardColor,
                 color: "#ffffff",
             }}
+
+            onClick={navigateToPokemon}
+
         >
-            <div className="text-sm text-gray-600"><h3>#{pokemon.id}</h3></div>
+            <div className="text-2xl text-gray-600/50 font-medium"><h3>#{String(pokemon.id).padStart(3, "0")}</h3></div>
             <div className="flex justify-center">
                 <img
                 src={pokemon.sprites.front_default}
@@ -44,21 +57,21 @@ const getTypeColor = (type) => {
       fire: { primary: "#F5A35C", secondary: "#EE8130" },
       water: { primary: "#8AB6FF", secondary: "#6390F0" },
       grass: { primary: "#A3E075", secondary: "#7AC74C" },
-      electric: { primary: "#F7D02C", secondary: "#FFEA70" },
-      psychic: { primary: "#F95587", secondary: "#FF85A6" },
-      ice: { primary: "#96D9D6", secondary: "#C0F0EE" },
-      dragon: { primary: "#6F35FC", secondary: "#9067FF" },
-      dark: { primary: "#705746", secondary: "#8A6C5B" },
-      fairy: { primary: "#D685AD", secondary: "#EFA6C7" },
+      electric: { primary: "#FFEA70", secondary: "#F7D02C" },
+      psychic: { primary: "#FF85A6", secondary: "#F95587" },
+      ice: { primary: "#C0F0EE", secondary: "#74B3B0" },
+      dragon: { primary: "#9067FF", secondary: "#6F35FC" },
+      dark: { primary: "#8A6C5B", secondary: "#705746" },
+      fairy: { primary: "#EFA6C7", secondary: "#D685AD" },
       normal: { primary: "#C5C49B", secondary: "#A8A77A" },
-      fighting: { primary: "#C22E28", secondary: "#E0584F" },
-      flying: { primary: "#C5B6FF", secondary: " #A98FF3" },
-      poison: { primary: "#A33EA1", secondary: "#C262C6" },
-      ground: { primary: "#E2BF65", secondary: "#F2D187" },
-      rock: { primary: "#B6A136", secondary: "#D3C45E" },
+      fighting: { primary: "#E0584F", secondary: "#C22E28" },
+      flying: { primary: " #A98FF3", secondary: "#C5B6FF" },
+      poison: { primary: "#C262C6", secondary: "#A33EA1" },
+      ground: { primary: "#F2D187", secondary: "#C9A750" },
+      rock: { primary: "#D3C45E", secondary: "#B6A136" },
       bug: { primary: "#C3D34D", secondary: "#A6B91A" },
-      ghost: { primary: "#735797", secondary: "#8F72B5" },
-      steel: { primary: "#B7B7CE", secondary: "#D1D1E6" },
+      ghost: { primary: "#8F72B5", secondary: "#735797" },
+      steel: { primary: "#D1D1E6", secondary: "#B7B7CE" },      
     };
   
     return typeColors[type] || { primary: "#999999", secondary: "#777777" }; // Cor padrão para tipos desconhecidos
