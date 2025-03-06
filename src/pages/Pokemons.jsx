@@ -1,6 +1,6 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import PokemonFilter from "../components/PokemonFilter";
-import axios from "axios";
 import PokemonCard from "../components/PokemonCard";
 
 const Pokemons = () => {
@@ -115,9 +115,9 @@ const getPokemonsBySearch = async() =>{
 
 
     return (
-      <div className="mt-10 flex flex-col justify-center">
+      <div className="mt-30 flex flex-col justify-center pt-24 md:pt-0">
         <div className="text-center mb-10">
-          <h1 className="text-4xl">Desvende todos os Pokémons</h1>
+          <h1 className="text-4xl">Discover all Pokémon</h1>
         </div>
 
         {/*  Pokemon Filter */}
@@ -131,7 +131,7 @@ const getPokemonsBySearch = async() =>{
           </div>
           <div className="flex justify-around mb-10 items-center mt-5">
             <button
-              className={`px-4 py-2 rounded-md w-50 text-white
+              className={`px-4 py-2 rounded-md md:w-50 w-20 text-white
               ${page <= 1 ? "bg-gray-500 cursor-not-allowed" 
               : "bg-red-500 hover:bg-red-600 cursor-pointer"}
               `}
@@ -142,7 +142,7 @@ const getPokemonsBySearch = async() =>{
             </button>
             <span>{page} de {totalPages} </span>
             <button
-              className={`px-4 py-2 rounded-md w-50 text-white
+              className={`px-4 py-2 rounded-md md:w-50 w-20 text-white
                 ${page >= totalPages ? "bg-gray-500 cursor-not-allowed" 
                 : "bg-red-500 hover:bg-red-600 cursor-pointer"}
                 `}

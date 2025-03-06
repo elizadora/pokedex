@@ -1,4 +1,6 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+
 
 const PokemonFilter = ({onTypeChange, onSearchChange}) => {
     const [selectedType, setSelectedType] = useState("all");
@@ -6,7 +8,6 @@ const PokemonFilter = ({onTypeChange, onSearchChange}) => {
 
     const handleTypeChange = (e) => {
         setSelectedType(e.target.value);
-        // notify parent component
         onTypeChange(e.target.value);
     }
 
@@ -21,19 +22,17 @@ const PokemonFilter = ({onTypeChange, onSearchChange}) => {
 
 
     return(
-        <div className="flex justify-evenly items-center mb-20 flex-wrap">
+        <div className="flex md:justify-evenly flex-col md:flex-row items-center mb-20 flex-wrap gap-4 md:gap-0">
             <div className="flex bg-white border border-black-300 rounded-4xl">
                 <input
                 type="search"
                 placeholder="Search Pokemon"
-                className="px-2 py-1 rounded-4xl border-none outline-none"
+                className="md:px-2 md:py-1 rounded-4xl border-none outline-none w-full"
                 value={search}
                 onChange={handleSearchChange}
                 />
-                <button className='cursor-pointer py-1 px-2 rounded-4xl' onClick={setChangeSearch}>
-                    <svg className="w-6 h-6 text-red-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
-                    </svg>
+                <button className='cursor-pointer py-1 px-2 rounded-4xl flex items-center' onClick={setChangeSearch}>
+                    <MagnifyingGlassIcon className="w-6 h-6 text-red-800" />
                 </button>
             </div>
             <select className="px-10 py-1 border border-black-300 rounded-4xl bg-white" value={selectedType} onChange={handleTypeChange}>
