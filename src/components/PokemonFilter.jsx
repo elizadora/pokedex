@@ -24,6 +24,8 @@ const PokemonFilter = ({onTypeChange, onSearchChange}) => {
     return(
         <div className="flex md:justify-evenly flex-col md:flex-row items-center mb-20 flex-wrap gap-4 md:gap-0">
             <div className="flex bg-white border border-black-300 rounded-4xl">
+
+                {/*  Search Input */}
                 <input
                 type="search"
                 placeholder="Search Pokemon"
@@ -35,6 +37,8 @@ const PokemonFilter = ({onTypeChange, onSearchChange}) => {
                     <MagnifyingGlassIcon className="w-6 h-6 text-red-800" />
                 </button>
             </div>
+
+            {/* Filter by type */}
             <select className="px-10 py-1 border border-black-300 rounded-4xl bg-white" value={selectedType} onChange={handleTypeChange}>
                 <option value="all">All</option>
                 <option value="fire">Fire</option>

@@ -1,3 +1,4 @@
+// This file contains a function that returns the primary and secondary colors of a type of pokemon.
 const getTypeColor = (type) => {
     const typeColors = {
       fire: { primary: "#F5A35C", secondary: "#EE8130" },

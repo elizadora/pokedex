@@ -129,6 +129,8 @@ const getPokemonsBySearch = async() =>{
               <PokemonCard key={pokemon.id} pokemon={pokemon} />
             ))}
           </div>
+
+          {/* Pagination */}
           <div className="flex justify-around mb-10 items-center mt-5">
             <button
               className={`px-4 py-2 rounded-md md:w-50 w-20 text-white

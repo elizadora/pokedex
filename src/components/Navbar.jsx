@@ -24,7 +24,7 @@ const Navbar = () => {
                     alt="Pokemon Logo"
                 />
 
-                {/* Ícone do menu (mobile) */}
+                {/* Menu Icon (mobile)*/}
                 <span
                     className="text-3xl cursor-pointer md:hidden mx-2 block"
                     onClick={toggleMenu}
@@ -37,7 +37,7 @@ const Navbar = () => {
                 </span>
             </div>
 
-            {/* Menu de navegação */}
+            {/* Navigation menu */}
             <div className="w-full text-2xl">
                 <ul
                     className={`md:flex md:items-center absolute md:static bg-red-500 w-full left-0 md:w-auto md:py-0 py-0 md:pl-0 pl-7 md:opacity-100 transition-all duration-500 ease-in ${

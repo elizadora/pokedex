@@ -44,6 +44,7 @@ const Contact = () => {
             <img src={SquirtleIcon} alt="Squirtle Icon" className="md:w-24 md:h-24 w-20 h-20" />
           </div>
 
+          {/* Tecnologies */}
           <div className="flex flex-row items-center flex-wrap justify-center gap-2 mt-4">
             {tecnologies.map((tecnology, index) => (          
               <span key={index} className="px-4 py-1 rounded-full text-white" 

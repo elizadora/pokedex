@@ -35,6 +35,7 @@ const PokemonCard = ({ pokemon }) =>{
                 {pokemon.name}
             </h2>
 
+            {/* Types of pokemons */}
             <div className="flex justify-center gap-2 mt-4">
                 {pokemon.types.map((type, index) => (
                 <span
