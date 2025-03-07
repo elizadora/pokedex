@@ -34,13 +34,17 @@ const PokemonDetails = () => {
 
   return (
     <div className="flex justify-center mt-24 md:mt-5 flex-row flex-wrap">
+
+      {/* Button to go back */}
       <div className="w-full flex justify-start">
         <button className="cursor-pointer" onClick={() => window.history.back()}>
-          <ArrowLeftIcon className="md:h-15 h-15 w-20 text-red-800" />
+          <ArrowLeftIcon className="md:h-15 h-15 w-20 text-red-500  hover:text-red-400" />
         </button>
       </div>
+
+      {/* Card with Pokemon details */}
       <div
-        className="flex flex-col items-center bg-white p-10 rounded-lg shadow-2xl m-4 md:w-200 w-full"
+        className="flex flex-col items-center bg-white p-10 rounded-lg shadow-2xl m-4 md:w-200 w-[90%]"
         style={{
           background: `linear-gradient(${window.innerWidth <= 768 ? "180deg" : "90deg"
             }, ${pokemon.types && pokemon.types.length > 0
@@ -50,13 +54,16 @@ const PokemonDetails = () => {
 
         }}
       >
+
+        {/* Pokemon ID and Name */}
         <div className="flex md:flex-row md:justify-between w-full flex-col items-center">
           <p className="text-4xl font-bold text-gray-600/50">
             #{String(pokemon.id).padStart(3, "0")}
           </p>
           <p className="text-2xl font-bold text-gray-600 capitalize">{pokemon.name}</p>
         </div>
-
+        
+        {/* Pokemon Stats and Skills */}
         <div className="flex justify-between md:flex-row w-full mt-4 flex-col-reverse">
           <div className="flex flex-col gap-1">
             <h3 className="text-2xl font-bold text-gray-800/70 text-center md:text-left">Statistics</h3>
@@ -93,6 +100,8 @@ const PokemonDetails = () => {
               </div>
             </div>
           </div>
+
+          {/* Pokemon Image and Types */}
           <div className="flex flex-col items-center">
             <img
               src={pokemon.sprites.front_default}
