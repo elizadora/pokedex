@@ -54,7 +54,7 @@ npm run dev
 
 4. Acesse a aplicação no navegador
 ```
-http://localhost:3000
+http://localhost:5173
 ```
 
 Pronto! Agora você pode visualizar o projeto localmente.
