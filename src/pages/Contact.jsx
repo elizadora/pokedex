@@ -17,7 +17,7 @@ const Contact = () => {
       <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
 
       {/* Text contact */}
-      <div className="z-20 text-white text-center mb-10 md:pt-24 pt-50">
+      <div className="z-20 text-white text-center mb-10 mt-24">
         <h3 className="text-4xl font-bold">Contact me</h3>
         <h4 className="text-2xl">Feel free to contact me for any project or collaboration</h4>
       </div>

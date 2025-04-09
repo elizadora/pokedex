@@ -115,7 +115,7 @@ const getPokemonsBySearch = async() =>{
 
 
     return (
-      <div className="mt-30 flex flex-col justify-center pt-24 md:pt-0">
+      <div className="mt-14 flex flex-col justify-center pt-24 md:pt-0">
         <div className="text-center mb-10">
           <h1 className="text-4xl">Discover all Pokémon</h1>
         </div>

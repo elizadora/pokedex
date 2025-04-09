@@ -33,7 +33,7 @@ const PokemonDetails = () => {
   }
 
   return (
-    <div className="flex justify-center mt-24 md:mt-5 flex-row flex-wrap">
+    <div className="flex justify-center mt-14 md:mt-5 flex-row flex-wrap">
 
       {/* Button to go back */}
       <div className="w-full flex justify-start">
@@ -70,7 +70,7 @@ const PokemonDetails = () => {
             <div className="space-y-2">
               {pokemon.stats.map((stat, index) => (
 
-                <div key={index} className="flex items-center">
+                <div key={index} className="flex items-center w-[80%]">
                   <span className="flex-1 font-medium whitespace-break-spaces">
                     {stat.stat.name}:
                   </span>
@@ -86,9 +86,9 @@ const PokemonDetails = () => {
               ))}
             </div>
 
-            <div className="w-full mt-4 text-center md:text-left">
+            <div className="mt-4 text-center md:text-left w-full md:w-[80%]">
               <h3 className="text-2xl font-bold text-gray-800/70">Skills</h3>
-              <div className="flex gap-2 justify-center">
+              <div className="flex gap-2 flex-wrap">
                 {pokemon.abilities.map((ability, index) => (
                   <span
                     key={index}
