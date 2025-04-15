@@ -8,7 +8,7 @@ import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 const PokemonDetails = () => {
   const params = useParams();
   const pokemonId = params.pokemonId;
-  const [pokemon, setPokemon] = useState(null); 
+  const [pokemon, setPokemon] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const PokemonDetails = () => {
     } catch (error) {
       console.error("Erro ao buscar Pokémon:", error);
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
@@ -46,12 +46,13 @@ const PokemonDetails = () => {
       <div
         className="flex flex-col items-center bg-white p-10 rounded-lg shadow-2xl m-4 md:w-200 w-[90%]"
         style={{
-          background: `linear-gradient(${window.innerWidth <= 768 ? "180deg" : "90deg"
-            }, ${pokemon.types && pokemon.types.length > 0
+          background: `linear-gradient(${window.innerWidth <= 768 ? "180deg" : "90deg"}, 
+          ${pokemon.types && pokemon.types.length > 0
               ? getTypeColor(pokemon.types[0].type.name).primary
               : "#A8A878"
-            } 50%, white 50%)`,
-
+            } ${window.innerWidth <= 768 ? "40%" : "55.5%"}, 
+          white ${window.innerWidth <= 768 ? "30%" : "50%"}
+        )`
         }}
       >
 
@@ -62,33 +63,36 @@ const PokemonDetails = () => {
           </p>
           <p className="text-2xl font-bold text-gray-600 capitalize">{pokemon.name}</p>
         </div>
-        
+
         {/* Pokemon Stats and Skills */}
         <div className="flex justify-between md:flex-row w-full mt-4 flex-col-reverse">
           <div className="flex flex-col gap-1">
             <h3 className="text-2xl font-bold text-gray-800/70 text-center md:text-left">Statistics</h3>
-            <div className="space-y-2">
+            <div className="space-y-2 w-full">
               {pokemon.stats.map((stat, index) => (
 
-                <div key={index} className="flex items-center w-[80%]">
-                  <span className="flex-1 font-medium whitespace-break-spaces">
+                <div key={index} className="grid grid-cols-5 gap-y-3 gap-x-2 items-center w-full">
+                  <span className="col-span-2 font-medium whitespace-break-spaces">
                     {stat.stat.name}:
                   </span>
-                  <div className="flex-1 bg-gray-200 rounded-full h-1 mr-3">
-                    <div
-                      className="bg-blue-500 h-1 rounded-full"
-                      style={{ width: `${(stat.base_stat / 255) * 100}%` }}
-                    ></div>
+                  <div className="flex items-center md:col-span-2 gap-2 md:col-end-5 col-span-3">
+                    <progress
+                      max="255"
+                      value={stat.base_stat}
+                      className="w-full h-1 [&::-webkit-progress-bar]:rounded-full [&::-webkit-progress-value]:rounded-full
+                      [&::-webkit-progress-bar]:bg-gray-200 [&::-webkit-progress-value]:bg-blue-500
+                      [&::-moz-progress-bar]:bg-blue-500 rounded-3xl"
+                    />
+                    <span className="w-8 text-right ml-3">{stat.base_stat}</span>
                   </div>
-                  <span className="text-right">{stat.base_stat}</span>
                 </div>
-                
+
               ))}
             </div>
 
             <div className="mt-4 text-center md:text-left w-full md:w-[80%]">
               <h3 className="text-2xl font-bold text-gray-800/70">Skills</h3>
-              <div className="flex gap-2 flex-wrap">
+              <div className="flex gap-2 flex-wrap justify-center md:justify-start">
                 {pokemon.abilities.map((ability, index) => (
                   <span
                     key={index}
@@ -110,8 +114,8 @@ const PokemonDetails = () => {
             />
             <div className="flex gap-2 my-4 mt-10">
               {pokemon.types.map((type, index) => (
-                <span key={index} className="px-4 py-2 rounded-full text-white" 
-                style={{ backgroundColor: getTypeColor(type.type.name).secondary }}
+                <span key={index} className="px-4 py-2 rounded-full text-white"
+                  style={{ backgroundColor: getTypeColor(type.type.name).secondary }}
                 >
                   {type.type.name}
                 </span>
